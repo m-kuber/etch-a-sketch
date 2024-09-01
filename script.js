@@ -27,7 +27,7 @@ for (let i = 0; i < 16; i++)
 }
 
 const buttonContainer = document.querySelector("#button-container");
-buttonContainer.style.cssText = "display: flex; gap: 10px; justify-content: space-around; margin: 30px auto; background-color: gray; border: 5px solid darkblue; border-radius: 5px; width: 510px; padding: 10px;"
+buttonContainer.style.cssText = "display: flex; gap: 10px; justify-content: space-around; margin: 30px auto; background-color: gray; border: 5px solid darkblue; border-radius: 5px; width: 600px; padding: 10px;"
 
 const randomColourButton = document.createElement("button");
 randomColourButton.textContent = "Add random colours!";
@@ -67,7 +67,7 @@ document.querySelectorAll(".square-div").forEach((div) => {
             if (div.style.backgroundColor == "white")
             {
                 div.style.backgroundColor = randomColor();
-                div.style.opacity = 0.1;
+                div.style.opacity = 0.3;
             }
             else if (div.style.opacity < 1)
             {
@@ -77,6 +77,7 @@ document.querySelectorAll(".square-div").forEach((div) => {
         else if (buttonChoice == 2 && div.style.backgroundColor != "white")
         {
             div.style.backgroundColor = "white";
+            div.style.opacity = "1";
         }
     });
 });

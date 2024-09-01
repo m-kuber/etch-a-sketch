@@ -16,6 +16,22 @@
     background-color: gold;
 }
 
+#new-sketch
+{
+    display: block;
+    padding: 10px;
+    margin: 30px auto;
+    width: 300px;
+    background-color: lawngreen;
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Times New Roman', serif;
+    border: 5px solid black;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
 #container
 {
     background-color: darkslategrey;
@@ -27,9 +43,10 @@
 
 .buttons
 {
+    flex: 1;
     font-size: 20px; 
-    background-color: darkgray; 
-    color: blue; 
+    background-color: beige; 
+    color: black; 
     border: 3px solid red; 
     border-radius: 10px; 
     text-align: center; 
