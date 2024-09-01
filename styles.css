@@ -18,7 +18,9 @@
 
 #new-sketch
 {
-    display: block;
+    /* display is changed to block so that the button can be horizontally centered like block elements */
+    /* buttons are inline elements by default */
+    display: block; 
     padding: 10px;
     margin: 30px auto;
     width: 300px;
@@ -34,11 +36,16 @@
 
 #container
 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: darkslategrey;
     padding: 10px;
     width: 510px;
     margin: 10px auto;
     border-radius: 10px;
+    box-sizing: border-box;
 }
 
 .buttons
