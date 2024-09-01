@@ -1,6 +1,16 @@
 const container = document.querySelector("#container");
 container.style.cssText = "display: flex; flex-direction: column;"
 
+function randomColor()
+{
+    function r()
+    {
+        return Math.floor(Math.random() * 256);
+    }
+
+    return "rgb(" + r() + ", " + r() + ", " + r() + ")";
+}
+
 for (let i = 0; i < 16; i++)
 {
     let innerContainer = document.createElement("div");
@@ -17,15 +27,56 @@ for (let i = 0; i < 16; i++)
 }
 
 const buttonContainer = document.querySelector("#button-container");
-buttonContainer.style.cssText = "display: flex; justify-content: space-around; margin: 30px auto; background-color: gray; border: 5px solid darkblue; border-radius: 5px; width: 350px; padding: 10px;"
+buttonContainer.style.cssText = "display: flex; gap: 10px; justify-content: space-around; margin: 30px auto; background-color: gray; border: 5px solid darkblue; border-radius: 5px; width: 510px; padding: 10px;"
 
 const randomColourButton = document.createElement("button");
 randomColourButton.textContent = "Add random colours!";
 randomColourButton.setAttribute("class", "buttons");
 buttonContainer.appendChild(randomColourButton);
 
+const darkenerButton = document.createElement("button");
+darkenerButton.textContent = "Progressive Darkening!";
+darkenerButton.setAttribute("class", "buttons");
+buttonContainer.appendChild(darkenerButton);
 
 const eraserButton = document.createElement("button");
 eraserButton.textContent = "Eraser";
 eraserButton.setAttribute("class", "buttons");
 buttonContainer.appendChild(eraserButton);
+
+let buttonChoice = 0;
+
+randomColourButton.addEventListener("click", () => {
+    buttonChoice = 0;
+});    
+darkenerButton.addEventListener("click", () => {
+    buttonChoice = 1;
+})
+eraserButton.addEventListener("click", () => {
+    buttonChoice = 2;
+});
+
+document.querySelectorAll(".square-div").forEach((div) => {
+    div.addEventListener("mouseover", () => {
+        if (buttonChoice == 0) 
+        {
+            div.style.backgroundColor = randomColor();
+        }
+        else if (buttonChoice == 1)
+        {
+            if (div.style.backgroundColor == "white")
+            {
+                div.style.backgroundColor = randomColor();
+                div.style.opacity = 0.1;
+            }
+            else if (div.style.opacity < 1)
+            {
+                div.style.opacity = (parseFloat(div.style.opacity) + 0.1).toString();
+            }
+        }
+        else if (buttonChoice == 2 && div.style.backgroundColor != "white")
+        {
+            div.style.backgroundColor = "white";
+        }
+    });
+});
